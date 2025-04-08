@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.inundated.mixin",
+	"refmap": "inundated.refmap.json",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"FloodedChunkGeneratorMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

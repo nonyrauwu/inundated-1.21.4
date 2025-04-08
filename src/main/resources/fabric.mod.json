@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "inundated",
+	"version": "${version}",
+	"name": "inundated",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me and ChatGPT!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "GNU GPLv3",
+	"icon": "assets/inundated/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.inundated.Inundated"
+		],
+		"fabric-datagen": [
+			"com.inundated.InundatedDataGenerator"
+		]
+	},
+	"mixins": [
+		"inundated.mixins.json"
+	],
+	"custom": {
+		"mixin.refmap": "inundated.refmap.json"
+	},
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
