@@ -47,6 +47,12 @@ tasks.withType(JavaCompile).configureEach {
 	options.compilerArgs += ["-parameters"]
 }
 
+loom {
+	mixin {
+		defaultRefmapName = "inundated.refmap.json"
+	}
+}
+
 java {
 	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
 	// if it is present.

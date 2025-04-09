@@ -18,13 +18,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(NoiseChunkGenerator.class)
 public class FloodedChunkGeneratorMixin {
 
-    @Inject(method = "method_12107", at = @At("TAIL"))
+    @Inject(method = "populateEntities", at = @At("TAIL"))
     private void onPopulateEntities(ChunkRegion region, CallbackInfo ci) {
         Chunk centerChunk = region.getChunk(region.getCenterPos().x, region.getCenterPos().z);
         floodChunk(centerChunk);
     }
 
-    @Inject(method = "method_12110", at = @At("HEAD"))
+    @Inject(method = "buildSurface", at = @At("HEAD"))
     private void onBuildSurface(ChunkRegion region, StructureAccessor structures, NoiseConfig noiseConfig, Chunk chunk, CallbackInfo ci) {
         if (region.toServerWorld().getRegistryKey() == World.END) {
             floodChunk(chunk);
