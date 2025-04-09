@@ -1,6 +1,7 @@
 package com.inundated.mixin;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -44,9 +45,9 @@ public class FloodedChunkGeneratorMixin {
                     BlockState state = chunk.getBlockState(pos);
 
                     if (state.isAir()) {
-                        chunk.setBlockState(pos, Blocks.WATER.getDefaultState(), false);
+                        chunk.setBlockState(pos, Blocks.WATER.getDefaultState(), Block.NOTIFY_ALL);
                     } else if (state.contains(Properties.WATERLOGGED) && !state.get(Properties.WATERLOGGED)) {
-                        chunk.setBlockState(pos, state.with(Properties.WATERLOGGED, true), false);
+                        chunk.setBlockState(pos, state.with(Properties.WATERLOGGED, true), Block.NOTIFY_ALL);
                     }
                 }
             }
